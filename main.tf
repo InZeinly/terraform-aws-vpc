@@ -16,6 +16,4 @@ terraform {
 
 provider "aws" {
   region                = var.aws_region
-  shared_credentials_file = "/home/master/.aws/credentials"
-  profile               = "TestProfileVPC"
 }
