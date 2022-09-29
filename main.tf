@@ -17,3 +17,12 @@ terraform {
 provider "aws" {
   region                = var.aws_region
 }
+
+module "bastion" {
+  source = "./modules/bastion"
+}
+
+module "key" {
+  source = "./modules/key"
+  
+}
