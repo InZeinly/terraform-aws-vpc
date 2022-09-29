@@ -2,9 +2,9 @@ resource "aws_instance" "bastion" {
     ami = data.aws_ami.ubuntu_18_04.id
     instance_type = "t2.micro"
     #Assign to subnet
-    subnet_id = aws_subnet.publicsubnet.id
+    subnet_id = var.public-sub-cidr.id
     key_name = var.key_name.id
-    vpc_security_group_ids = aws_security_group.ssh.id
+    vpc_security_group_ids = [aws_security_group.bastion_sg.id]
     user_data = data.template_file.user_data.rendered
 
     tags = {
@@ -21,7 +21,7 @@ data "template_file" "user_data" {
 resource "aws_security_group" "bastion_sg" {
     name = "bastion security group"
     description = "Allow trafic"
-    vpc_id = aws_vpc.vpc1.id
+    vpc_id = var.vpc-cidr.id
 
     ingress = {
       cidr_blocks = [ "0.0.0.0/0" ]

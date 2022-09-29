@@ -1,40 +1,45 @@
-variable "public_subnets_id" {
-  description = "A list of public subnets id inside the VPC"
-  type        = list(string)
-  default     = []
-}
-
-variable "private_subnets_id" {
-  description = "A list of private subnets id inside the VPC"
-  type        = list(string)
-  default     = []
-}
-
-variable "vpc_id" {
-  type    = string
-  default = ""
-}
-
-variable "aws_ami_id" {
-  type    = string
-  default = ""
-}
-
 variable "private_key_pem" {
   type    = string
   default = ""
 }
 
-variable "instance_type" {
-  type    = string
-  default = ""
-}
 variable "key_name_bastion" {
   type    = string
   default = ""
 }
+variable "aws_region" {
+    description = "vpc aws region"
+    default = "eu-central-1"
+}
 
-variable "sg_bas_ingress_ports" {
-  type    = list(string)
-  default = []
+variable "vpc-cidr" {
+    description = "CIDR for VPC"
+    default = "10.0.0.0/16"
+}
+
+variable "public-sub-cidr" {
+    description = "CIDR for public1"
+    default = "10.0.5.0/24"
+}
+
+variable "public-sub-cidr2" {
+    description = "CIDR for public2"
+    default = "10.0.15.0/24"
+}
+
+variable "private-sub-cidr" {
+    description = "CIDR for private1"
+    default = "10.0.10.0/24"
+}
+
+variable "private-sub-cidr2" {
+    description = "CIDR for private2"
+    default = "10.0.20.0/24"
+}
+
+#maybe
+variable "key_name_bastion" {
+  description = "key_name_bastion"
+  type        = string
+  default     = ""
 }
