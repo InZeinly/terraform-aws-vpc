@@ -28,3 +28,8 @@ variable "private-sub-cidr2" {
     default = "10.0.20.0/24"
 }
 
+#maybe
+variable "key_name_bastion" {
+  type    = string
+  default = ""
+}
