@@ -34,3 +34,7 @@ variable "key_name_bastion" {
   type        = string
   default     = ""
 }
+
+variable "sg_bas_ingress_ports" {
+  type    = list(string)
+  default = []
