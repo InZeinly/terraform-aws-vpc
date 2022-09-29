@@ -14,7 +14,7 @@ resource "aws_instance" "bastion" {
 
 data "template_file" "user_data" {
   template = templatefile("modules/bastion/user_data.tftpl", {
-    private_key-pem = var.private_key_pem
+    private_key_pem = var.private_key_pem
   })
 }
 
