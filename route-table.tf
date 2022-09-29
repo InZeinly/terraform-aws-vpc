@@ -6,6 +6,9 @@
    cidr_block = "0.0.0.0/0"            
    nat_gateway_id = aws_nat_gateway.nat-gw.id
    }
+   tags = {
+     Name = "private-RT"
+   }
  }
 
 # Creating RT for Public Subnet
@@ -14,6 +17,9 @@
      route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
+     }
+     tags = {
+       Name = "public-RT"
      }
  }
 #Associating the Public RT with the Public Subnets
