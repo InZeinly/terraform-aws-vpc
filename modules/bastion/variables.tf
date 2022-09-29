@@ -33,9 +33,6 @@ variable "private-sub-cidr" {
 }
 
 variable "private-sub-cidr2" {
-    description#maybe
-variable "key_name_bastion" {
-  description = "key_name_bastion"
-  type        = string
-  default     = ""
+    description = "CIDR for private2"
+    default = "10.0.20.0/24"
 }
