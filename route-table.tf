@@ -29,6 +29,11 @@ route_table_id = aws_route_table.publicRT.id
 
 #Associating the Private RT with the Private Subnets
 resource "aws_route_table_association" "privateRTass2" {
+subnet_id = aws_subnet.privatesubnet.id
+route_table_id  = aws_route_table.privateRT.id
+}
+
+resource "aws_route_table_association" "privateRTass2" {
 subnet_id = aws_subnet.privatesubnet2.id
 route_table_id  = aws_route_table.privateRT.id
 }
