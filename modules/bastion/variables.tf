@@ -39,3 +39,4 @@ variable "private-sub-cidr2" {
 variable "sg_bas_ingress_ports" {
   type    = list(string)
   default = []
+}
