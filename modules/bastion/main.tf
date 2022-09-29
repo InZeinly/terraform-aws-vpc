@@ -19,7 +19,7 @@ data "template_file" "user_data" {
 }
 
 resource "aws_security_group" "bastion_sg" {
-  vpc_id = var.vpc_id
+  vpc_id = var.vpc-cidr.id
   name   = "bastion security group"
   dynamic "ingress" {
     for_each = var.sg_bas_ingress_ports
