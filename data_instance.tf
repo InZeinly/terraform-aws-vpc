@@ -19,7 +19,8 @@ data "aws_ami" "ubuntu_18_04" {
   owners = ["amazon"] # Canonical
 }
 
-variable "key_name" {
-    description = "Key name"
-    default = "aws-terraform"
-}
+#test without key var
+# variable "key_name" {
+#     description = "Key name"
+#     default = "aws-terraform"
+# }
