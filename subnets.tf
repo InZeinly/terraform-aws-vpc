@@ -1,7 +1,7 @@
 resource "aws_subnet" "privatesubnet" {
     vpc_id = aws_vpc.vpc1.id
     cidr_block = var.private-sub-cidr
-
+    
     tags = {
       Name = "private-1"
     }

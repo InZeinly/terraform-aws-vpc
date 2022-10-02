@@ -27,15 +27,3 @@ variable "private-sub-cidr2" {
     description = "CIDR for private2"
     default = "10.0.20.0/24"
 }
-
-#maybe
-variable "key_name_bastion" {
-  description = "key_name_bastion"
-  type        = string
-  default     = ""
-}
-
-variable "sg_bas_ingress_ports" {
-  type    = list(string)
-  default = []
-}
