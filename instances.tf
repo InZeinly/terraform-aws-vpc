@@ -46,6 +46,6 @@ resource "aws_instance" "private2" {
     security_groups = [ aws_security_group.ssh.id ]
 
     tags = {
-      Name = "Private 1"
+      Name = "Private 2"
     }
 } 
