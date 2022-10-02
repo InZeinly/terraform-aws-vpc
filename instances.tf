@@ -3,7 +3,7 @@ resource "aws_instance" "bastion" {
     instance_type = "t2.micro"
     #Assign to subnet
     subnet_id = aws_subnet.publicsubnet.id
-    key_name = var.key_name.id
+    key_name = var.key_name
     security_groups = [ aws_security_group.bastion_sg.id ]
 
     tags = {
@@ -16,7 +16,7 @@ resource "aws_instance" "Public2" {
     instance_type = "t2.micro"
     #Assign to subnet
     subnet_id = aws_subnet.publicsubnet2.id
-    key_name = var.key_name.id
+    key_name = var.key_name
     security_groups = [ aws_security_group.ssh.id ]
 
     tags = {
@@ -29,7 +29,7 @@ resource "aws_instance" "private1" {
     instance_type = "t2.micro"
     #Assign to subnet
     subnet_id = aws_subnet.privatesubnet.id
-    key_name = var.key_name.id
+    key_name = var.key_name
     security_groups = [ aws_security_group.ssh.id ]
 
     tags = {
@@ -42,7 +42,7 @@ resource "aws_instance" "private2" {
     instance_type = "t2.micro"
     #Assign to subnet
     subnet_id = aws_subnet.privatesubnet2.id
-    key_name = var.key_name.id
+    key_name = var.key_name
     security_groups = [ aws_security_group.ssh.id ]
 
     tags = {
