@@ -17,6 +17,10 @@ resource "aws_security_group" "ssh" {
       protocol = "-1"
       to_port = 0
     }
+
+    tags = {
+      Name = "SSH group"
+    }
 }
 
 resource "aws_security_group" "bastion_sg" {
@@ -37,5 +41,9 @@ resource "aws_security_group" "bastion_sg" {
       from_port = 0
       protocol = "-1"
       to_port = 0
+    }
+
+    tags = {
+      Name = "Bastion group"
     }
 }

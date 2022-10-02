@@ -48,4 +48,4 @@ resource "aws_instance" "private2" {
     tags = {
       Name = "Private 1"
     }
-}
+} 
