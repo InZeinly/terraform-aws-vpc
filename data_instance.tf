@@ -20,7 +20,7 @@ data "aws_ami" "ubuntu_18_04" {
 }
 
 #test without key var
-# variable "key_name" {
-#     description = "Key name"
-#     default = "aws-terraform"
-# }
+variable "key_name" {
+    description = "Key name"
+    default = "aws-terraform"
+}
