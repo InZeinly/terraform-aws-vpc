@@ -5,6 +5,7 @@ resource "aws_security_group" "ssh" {
 
     ingress = {
       cidr_blocks = [ aws_vpc.vpc1.cidr_blocks ]
+      description = "some"
       from_port = 22
       protocol = "tcp"
       to_port = 22
@@ -25,6 +26,7 @@ resource "aws_security_group" "bastion_sg" {
 
     ingress = {
       cidr_blocks = [ "0.0.0.0/0" ]
+      description = "some"
       from_port = 22
       protocol = "tcp"
       to_port = 22
