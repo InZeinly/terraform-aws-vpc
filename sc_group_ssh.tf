@@ -4,7 +4,7 @@ resource "aws_security_group" "ssh" {
     vpc_id = aws_vpc.vpc1.id
 
     ingress = {
-      cidr_blocks = [ aws_vpc.vpc1.cidr_blocks ]
+      cidr_blocks = [ "0.0.0.0/0" ]
       description = "some"
       from_port = 22
       protocol = "tcp"
@@ -12,7 +12,7 @@ resource "aws_security_group" "ssh" {
     } 
 
     egress = {
-      cidr_blocks = [ aws_vpc.vpc1.cidr_blocks ]
+      cidr_blocks = [ "0.0.0.0/0" ]
       from_port = 0
       protocol = "-1"
       to_port = 0
