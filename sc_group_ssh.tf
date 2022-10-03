@@ -11,6 +11,15 @@ resource "aws_security_group" "ssh" {
       to_port = 22
     } 
 
+    ingress {
+      cidr_blocks = [ "0.0.0.0/0" ]
+      description = "some"
+      from_port = 80
+      protocol = "tcp"
+      to_port = 80
+    } 
+
+
     egress {
       cidr_blocks = [ "0.0.0.0/0" ]
       from_port = 0
