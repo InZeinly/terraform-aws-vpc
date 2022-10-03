@@ -1,4 +1,4 @@
-resource "aws_security_group" "ssh" {
+resource "aws_security_group" "private" {
     name = "SC for Web Instance"
     description = "Allow trafic"
     vpc_id = aws_vpc.vpc1.id
@@ -29,7 +29,7 @@ resource "aws_security_group" "ssh" {
     }
 
     tags = {
-      Name = "SSH group"
+      Name = "For Private"
     }
 }
 

@@ -30,7 +30,7 @@ resource "aws_instance" "private1" {
     #Assign to subnet
     subnet_id = aws_subnet.privatesubnet.id
     key_name = var.key_name
-    security_groups = [ aws_security_group.ssh.id ]
+    security_groups = [ aws_security_group.private.id ]
 
     tags = {
       Name = "Private 1"
@@ -43,7 +43,7 @@ resource "aws_instance" "private2" {
     #Assign to subnet
     subnet_id = aws_subnet.privatesubnet2.id
     key_name = var.key_name
-    security_groups = [ aws_security_group.ssh.id ]
+    security_groups = [ aws_security_group.private.id ]
 
     tags = {
       Name = "Private 2"
