@@ -19,7 +19,7 @@ resource "aws_subnet" "privatesubnet2" {
 resource "aws_subnet" "publicsubnet" {
     vpc_id = aws_vpc.vpc1.id
     cidr_block = var.public-sub-cidr
-
+    map_public_ip_on_launch = true
     tags = {
       Name = "public-1"
     }

@@ -32,7 +32,7 @@ resource "aws_instance" "private1" {
     key_name = var.key_name
     security_groups = [ aws_security_group.private.id ]
 
-    
+
     user_data = <<EOF
     #!/bin/bash
     sudo apt update -y
