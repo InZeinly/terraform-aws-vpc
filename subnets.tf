@@ -25,7 +25,7 @@
 # }
 
 #private subnets with for
-resource "aws_subnet" {
+resource "aws_subnet" "private-subnet" {
   for_each = var.private-cidr
   name = var.private-subnets
 }

@@ -75,7 +75,7 @@ variable "ports-private" {
   type = map(object({
     port = number
     protocol = string
-    cidr_blocks = list(string)
+    cidr_blocks = var.cidr-sg
   }))
   default = {
     "80" = {
