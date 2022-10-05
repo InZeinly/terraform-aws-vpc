@@ -56,3 +56,9 @@ resource "aws_instance" "private2" {
       Name = "Private 2"
     }
 } 
+
+# try create aws instance with for each loop
+# resource "aws_instance" {
+#   for_each = var.privates
+#   name = each.value
+# }

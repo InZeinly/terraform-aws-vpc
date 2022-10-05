@@ -3,21 +3,33 @@ resource "aws_security_group" "private" {
     description = "Allow trafic"
     vpc_id = aws_vpc.vpc1.id
 
-    ingress {
-      cidr_blocks = [ "0.0.0.0/0" ]
-      description = "some"
-      from_port = 22
-      protocol = "tcp"
-      to_port = 22
-    } 
+    # ingress {
+    #   cidr_blocks = [ "0.0.0.0/0" ]
+    #   description = "some"
+    #   from_port = 22
+    #   protocol = "tcp"
+    #   to_port = 22
+    # } 
 
-    ingress {
-      cidr_blocks = [ "0.0.0.0/0" ]
+    # ingress {
+    #   cidr_blocks = [ "0.0.0.0/0" ]
+    #   description = "some"
+    #   from_port = 80
+    #   protocol = "tcp"
+    #   to_port = 80
+    # } 
+
+    # dynamic block for ingress
+  dynamic "ingress" {
+    for_each = var.ports.private
+    content{
       description = "some"
-      from_port = 80
-      protocol = "tcp"
-      to_port = 80
-    } 
+      from_port = ingress.value.port
+      to_port = ingress.value.port
+      protocol = ingess.value.protocol
+      cidr_blocks = ingress.value.cidr_block
+    }
+  }
 
 
     egress {
