@@ -30,7 +30,7 @@ resource "aws_subnet" "private-subnet" {
   name = each.value
 }
 
-public subnets
+# public subnets
 
 resource "aws_subnet" "publicsubnet" {
     vpc_id = aws_vpc.vpc1.id
