@@ -26,6 +26,7 @@
 
 #private subnets with for
 resource "aws_subnet" "private-subnet" {
+  vpc_id = var.vpc1.id
   for_each = var.private-cidr
   name = each.value
 }
