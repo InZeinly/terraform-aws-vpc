@@ -21,7 +21,7 @@ resource "aws_security_group" "private" {
 
     # dynamic block for ingress
   dynamic "ingress" {
-    for_each = var.ports.private
+    for_each = var.ports-private
     content{
       description = "some"
       from_port = ingress.value.port
