@@ -3,6 +3,9 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name = "IGW"
   }
+  depends_on = [
+      aws_vpc.vpc1
+    ]
 }
 
 resource "aws_eip" "aws-eip" {

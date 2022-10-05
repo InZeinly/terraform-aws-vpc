@@ -53,6 +53,10 @@ resource "aws_security_group" "bastion_sg" {
       to_port = 0
     }
 
+    depends_on = [
+      aws_vpc.vpc1
+    ]
+
     tags = {
       Name = "Bastion group"
     }

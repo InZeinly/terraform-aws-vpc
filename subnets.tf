@@ -5,6 +5,10 @@ resource "aws_subnet" "privatesubnet" {
     tags = {
       Name = "private-1"
     }
+
+    depends_on = [
+      aws_vpc.vpc1
+    ]
 }
 
 resource "aws_subnet" "privatesubnet2" {
@@ -14,6 +18,10 @@ resource "aws_subnet" "privatesubnet2" {
     tags = {
       Name = "private-2"
     }
+
+    depends_on = [
+      aws_vpc.vpc1
+    ]
 }
 
 resource "aws_subnet" "publicsubnet" {
@@ -23,6 +31,10 @@ resource "aws_subnet" "publicsubnet" {
     tags = {
       Name = "public-1"
     }
+
+    depends_on = [
+      aws_vpc.vpc1
+    ]
 }
 
 resource "aws_subnet" "publicsubnet2" {
@@ -32,6 +44,10 @@ resource "aws_subnet" "publicsubnet2" {
     tags = {
       Name = "public-2"
     }
+
+    depends_on = [
+      aws_vpc.vpc1
+    ]
 }
 
 # use count to shortened code by index

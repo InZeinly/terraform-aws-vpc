@@ -25,6 +25,9 @@
 resource "aws_route_table_association" "publicRTass" {
 subnet_id = aws_subnet.publicsubnet.id
 route_table_id = aws_route_table.publicRT.id
+depends_on = [
+  aws_subnet.publicsubnet, aws_route_table.publicRT
+]
 }
 
 resource "aws_route_table_association" "publicRTass2" {
