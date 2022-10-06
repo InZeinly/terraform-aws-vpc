@@ -2,9 +2,12 @@ resource "aws_instance" "bastion" {
     ami = data.aws_ami.ubuntu_18_04.id
     instance_type = "t2.micro"
     #Assign to subnet
-    subnet_id = aws_subnet.publicsubnet.id
+    for_each = aws_subnet.publicsubnet
+    subnet_id = each.value.id
+    # subnet_id = aws_subnet.publicsubnet.id
     key_name = var.key_name
-    security_groups = [ aws_security_group.bastion_sg.id ]
+    # security_groups = [ aws_security_group.bastion_sg.id ]
+    security_groups = each.value
 
     tags = {
       Name = "EC-2 bastion"

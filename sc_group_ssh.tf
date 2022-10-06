@@ -1,7 +1,8 @@
 resource "aws_security_group" "private" {
     name = "SC for Web Instance"
     description = "Allow trafic"
-    vpc_id = aws_vpc.vpc.id
+    for_each = aws_vpc.vpc
+    vpc_id = each.value.id
 
     # ingress {
     #   cidr_blocks = [ "0.0.0.0/0" ]
