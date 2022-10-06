@@ -35,7 +35,8 @@ resource "aws_instance" "private1" {
     for_each = aws_subnet.private-subnet
     subnet_id = each.value.id
     key_name = var.key_name
-    security_groups = [ aws_security_group.private.id ]
+    security_groups = each.value
+    # security_groups = [ aws_security_group.private.id ]
 
 
     user_data = <<EOF
@@ -45,7 +46,7 @@ resource "aws_instance" "private1" {
     EOF
 
     tags = {
-      Name = "Private 1"
+      Name = "Private ${each.key}"
     }
 }
 
