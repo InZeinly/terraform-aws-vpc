@@ -31,7 +31,9 @@ resource "aws_instance" "private1" {
     ami = data.aws_ami.ubuntu_18_04.id
     instance_type = "t2.micro"
     #Assign to subnet
-    subnet_id = aws_subnet.privatesubnet.id
+    # subnet_id = aws_subnet.privatesubnet.id
+    for_each = aws_subnet.private-subnet
+    subnet_id = each.value.id
     key_name = var.key_name
     security_groups = [ aws_security_group.private.id ]
 
@@ -47,18 +49,18 @@ resource "aws_instance" "private1" {
     }
 }
 
-resource "aws_instance" "private2" {
-    ami = data.aws_ami.ubuntu_18_04.id
-    instance_type = "t2.micro"
-    #Assign to subnet
-    subnet_id = aws_subnet.privatesubnet2.id
-    key_name = var.key_name
-    security_groups = [ aws_security_group.private.id ]
+# resource "aws_instance" "private2" {
+#     ami = data.aws_ami.ubuntu_18_04.id
+#     instance_type = "t2.micro"
+#     #Assign to subnet
+#     subnet_id = aws_subnet.privatesubnet2.id
+#     key_name = var.key_name
+#     security_groups = [ aws_security_group.private.id ]
 
-    tags = {
-      Name = "Private 2"
-    }
-} 
+#     tags = {
+#       Name = "Private 2"
+#     }
+# } 
 
 # try create aws instance with for each loop
 # resource "aws_instance" {

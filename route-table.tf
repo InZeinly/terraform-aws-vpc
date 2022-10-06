@@ -1,7 +1,10 @@
 
  resource "aws_route_table" "privateRT" {   
-  for_for_each = aws_vpc.vpc
-  vpc_id = each.value.id 
+  dynamic "vpc_id" {
+      for_for_each = aws_vpc.vpc
+      vpc_id = each.value.id 
+  }
+
 #  vpc_id = aws_vpc.vpc.id
    route {
    cidr_block = "0.0.0.0/0"            
