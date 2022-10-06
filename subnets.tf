@@ -45,7 +45,7 @@ resource "aws_subnet" "publicsubnet" {
     }
 
     depends_on = [
-      aws_vpc.vpc[each.key]
+      aws_vpc.vpc
     ]
 }
 
