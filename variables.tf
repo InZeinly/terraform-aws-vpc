@@ -15,7 +15,9 @@ variable "vpc" {
     cidr_blocks = string
   }))
   default = {
-    "cidr1" = "10.0.0.0/16"
+    "cidr1" = {
+      "10.0.0.0/16"
+      }
   }
 }
 
