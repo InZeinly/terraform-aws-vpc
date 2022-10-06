@@ -11,7 +11,7 @@
  }
 
  resource "aws_route_table" "publicRT" {
-  vpc_id =  aws_vpc.vpc.id
+  for_each = aws_vpc.vpc
      route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id[each.key]
