@@ -17,6 +17,8 @@ variable "vpc" {
   default = {
     "cidr1" = "10.0.0.0/16"
   }
+}
+
 
 # variable "public-sub-cidr" {
 #     description = "CIDR for public1"
