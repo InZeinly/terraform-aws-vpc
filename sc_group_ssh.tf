@@ -1,7 +1,7 @@
 resource "aws_security_group" "private" {
     name = "SC for Web Instance"
     description = "Allow trafic"
-    vpc_id = aws_vpc.vpc1.id
+    vpc_id = aws_vpc.vpc.id
 
     # ingress {
     #   cidr_blocks = [ "0.0.0.0/0" ]
@@ -37,7 +37,8 @@ resource "aws_security_group" "private" {
       from_port = 0
       protocol = "-1"
       to_port = 0
-      security_groups = [ aws_security_group.bastion_sg.id]
+      for_each = aws_security_group.bastion_sg
+      security_groups = each.value
     }
 
     tags = {
