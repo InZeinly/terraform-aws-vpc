@@ -14,7 +14,8 @@
   for_each = aws_vpc.vpc
      route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id[each.key]
+    # gateway_id = aws_internet_gateway.igw.id
+    for_each = aws_internet_gateway.igw
      }
      tags = {
        Name = "public-RT"
