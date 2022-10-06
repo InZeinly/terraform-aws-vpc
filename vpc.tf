@@ -1,3 +1,4 @@
-resource "aws_vpc" "vpc1" {
-  cidr_block = var.vpc-cidr
+resource "aws_vpc" "vpc" {
+  for_each = var.vpc
+  cidr_block = each.value.cidr_blocks
 }

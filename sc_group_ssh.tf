@@ -48,7 +48,7 @@ resource "aws_security_group" "private" {
 resource "aws_security_group" "bastion_sg" {
     name = "SC for Bastion"
     description = "bastion sg"
-    vpc_id = aws_vpc.vpc1.id
+    vpc_id = aws_vpc.vpc.id
 
     ingress {
       cidr_blocks = [ "0.0.0.0/0" ]
@@ -66,7 +66,7 @@ resource "aws_security_group" "bastion_sg" {
     }
 
     depends_on = [
-      aws_vpc.vpc1
+      aws_vpc.vpc
     ]
 
     tags = {

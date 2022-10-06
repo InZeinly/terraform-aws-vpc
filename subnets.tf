@@ -26,15 +26,17 @@
 
 #private subnets with for
 resource "aws_subnet" "private-subnet" {
-  dynamic "settings" {
-    for_each = var.private-cidr
+    for_each = toset(var.subnets)
+    cidr_blocks = each.value
+    tags = {
+      "Name" = each.key
+    }
   }
-} #  CONTINUE FROM HERE
 
 # public subnets
 
 resource "aws_subnet" "publicsubnet" {
-    vpc_id = aws_vpc.vpc1.id
+    vpc_id = aws_vpc.vpc.id
     cidr_block = "10.0.1.0/24"  #var.public-sub-cidr
     map_public_ip_on_launch = true
     tags = {
@@ -47,7 +49,7 @@ resource "aws_subnet" "publicsubnet" {
 }
 
 resource "aws_subnet" "publicsubnet2" {
-    vpc_id = aws_vpc.vpc1.id
+    vpc_id = aws_vpc.vpc.id
     cidr_block = "10.0.2.0/24"  #var.public-sub-cidr2
 
     tags = {
@@ -55,6 +57,6 @@ resource "aws_subnet" "publicsubnet2" {
     }
 
     depends_on = [
-      aws_vpc.vpc1
+      aws_vpc.vpc
     ]
 }

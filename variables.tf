@@ -3,9 +3,20 @@ variable "aws_region" {
     default = "eu-central-1"
 }
 
-variable "vpc-cidr" {
-    description = "CIDR for VPC"
-    default = "10.0.0.0/16"
+# variable "vpc-cidr" {
+#     description = "CIDR for VPC"
+#     default = "10.0.0.0/16"
+# }
+
+# variable vpc cidr for loop
+
+variable "vpc" {
+  type = map(object){
+    cidr_blocks = string
+    default = {
+      "cidr1" = "10.0.0.0/16"
+    }
+  }
 }
 
 # variable "public-sub-cidr" {
@@ -37,22 +48,31 @@ variable "public-cidr" {
     default = [ "10.0.1.0/24", "10.0.2.0/24" ]
 }
 
-#var for private
-variable "private-cidr" {
-    description = "cidr for private"
-    type = set(string)
-    default = [ "10.0.10.0/24", "10.0.20.0/24" ]
+#var for cidr private
+# variable "private-cidr" {
+#     description = "cidr for private"
+#     type = set(string)
+#     default = [ "10.0.10.0/24", "10.0.20.0/24" ]
+# }
+
+# subnet var with map ( dictionary )
+
+variable "subnets" {
+  default = {
+    private1 = "10.0.10.0/24",
+    private2 = "10.0.20.0/24"
+  }
 }
 
 # var for subnets
-variable "private-subnets" {
-  description = "subnets"
-  type = set(string)
-  default = [ "private1", "private2" ]
-}
+# variable "private-subnets" {
+#   description = "subnets"
+#   type = set(string)
+#   default = [ "private1", "private2" ]
+# }
 
 #var cidr for sg
-variable "cidr-sg" {
+variable "cidr-open" {
     default = [ "0.0.0.0/0" ]
 }
 
