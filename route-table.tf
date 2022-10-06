@@ -16,7 +16,7 @@
      route {
     cidr_block = "0.0.0.0/0"
     # gateway_id = aws_internet_gateway.igw.id
-    for_each = aws_internet_gateway.igw
+    # for_each = aws_internet_gateway.igw
     gateway_id = each.value.id
      }
      tags = {
