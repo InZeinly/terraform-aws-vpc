@@ -48,7 +48,8 @@ resource "aws_security_group" "private" {
 resource "aws_security_group" "bastion_sg" {
     name = "SC for Bastion"
     description = "bastion sg"
-    vpc_id = aws_vpc.vpc.id[each.key]
+    for_each = aws_vpc.vpc
+    vpc_id = each.value.id
 
     ingress {
       cidr_blocks = [ "0.0.0.0/0" ]
