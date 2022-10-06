@@ -21,7 +21,9 @@ variable "aws_region" {
 # }
 
 variable "vpc" {
-  vpc = "10.0.0.0/16"
+  default = {
+    vpc = "10.0.0.0/16"
+  }
 }
 
 # variable "public-sub-cidr" {
