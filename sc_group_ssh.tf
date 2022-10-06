@@ -38,7 +38,7 @@ resource "aws_security_group" "private" {
       from_port = 0
       protocol = "-1"
       to_port = 0
-      for_each = aws_security_group.bastion_sg
+      # for_each = aws_security_group.bastion_sg
       security_groups = each.value
     }
 

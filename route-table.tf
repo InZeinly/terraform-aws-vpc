@@ -1,9 +1,12 @@
 
- resource "aws_route_table" "privateRT" {    
- vpc_id = aws_vpc.vpc.id
+ resource "aws_route_table" "privateRT" {   
+  for_for_each = aws_vpc.vpc
+  vpc_id = each.value.id 
+#  vpc_id = aws_vpc.vpc.id
    route {
    cidr_block = "0.0.0.0/0"            
-   nat_gateway_id = aws_nat_gateway.nat-gw.id
+  #  nat_gateway_id = aws_nat_gateway.nat-gw.id
+  nat_gateway_id = each.value.id
    }
    tags = {
      Name = "private-RT"
