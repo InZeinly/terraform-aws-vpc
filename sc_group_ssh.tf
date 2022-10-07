@@ -27,7 +27,7 @@ resource "aws_security_group" "private" {
       description = "some"
       from_port = ingress.value.port
       to_port = ingress.value.port
-      protocol = ingess.value.protocol
+      protocol = ingress.value.protocol
       cidr_blocks = ingress.value.cidr_block
     }
   }
