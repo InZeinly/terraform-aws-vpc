@@ -9,16 +9,16 @@ variable "aws_region" {
 # }
 
 # variable vpc cidr for loop
-variable "vpc" {
-  type = map(object({
-    cidr_block = list(string)
-  }))
-  default = {
-    "cidr1" = {
-      cidr_block = ["10.0.0.0/16"]
-      }
-  }
-}
+# variable "vpc" {
+#   type = map(object({
+#     cidr_block = list(string)
+#   }))
+#   default = {
+#     "cidr1" = {
+#       cidr_block = ["10.0.0.0/16"]
+#       }
+#   }
+# }
 
 # variable "vpc" {
 #   default = {
@@ -26,11 +26,11 @@ variable "vpc" {
 #   }
 # }
 
-# variable "vpc" {
-#   description = "main vpc"
-#   type = set(string)
-#   default = [ "10.0.0.0/16" ]
-# }
+variable "vpc" {
+  description = "main vpc"
+  type = string
+  default = "10.0.0.0/16"
+}
 
 # variable "public-sub-cidr" {
 #     description = "CIDR for public1"
