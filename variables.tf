@@ -20,10 +20,16 @@ variable "aws_region" {
 #   }
 # }
 
+# variable "vpc" {
+#   default = {
+#     vpc = "10.0.0.0/16"
+#   }
+# }
+
 variable "vpc" {
-  default = {
-    vpc = "10.0.0.0/16"
-  }
+  description = "main vpc"
+  type = set(string)
+  default = [ "10.0.0.0/16" ]
 }
 
 # variable "public-sub-cidr" {
