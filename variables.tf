@@ -28,7 +28,7 @@ variable "aws_region" {
 
 variable "vpc" {
   description = "main vpc"
-  type = string
+  type = set(string)
   default = "10.0.0.0/16"
 }
 
