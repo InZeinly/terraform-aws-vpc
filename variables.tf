@@ -11,11 +11,11 @@ variable "aws_region" {
 # variable vpc cidr for loop
 variable "vpc" {
   type = map(object({
-    cidr_blocks = string
+    cidr_block = list(string)
   }))
   default = {
     "cidr1" = {
-      cidr_blocks = "10.0.0.0/16"
+      cidr_block = ["10.0.0.0/16"]
       }
   }
 }
