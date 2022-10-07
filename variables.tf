@@ -86,7 +86,7 @@ variable "subnets" {
 
 #var cidr for sg
 variable "cidr-open" {
-    type = string
+    type = list(string)
     default = [ "0.0.0.0/0" ]
 }
 
