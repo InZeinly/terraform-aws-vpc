@@ -5,7 +5,7 @@
         route {
         cidr_block = var.cidr-open
         #cidr_block = "0.0.0.0/0"            
-        nat_gateway_id = aws_nat_gateway.each.value.id
+        nat_gateway_id = aws_nat_gateway.nat-gw.ids
         }
         tags = {
      Name = "private-RT"
