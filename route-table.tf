@@ -6,6 +6,9 @@
         cidr_block = var.cidr-open
         #cidr_block = "0.0.0.0/0"            
         nat_gateway_id = aws_nat_gateway.nat-gw.id
+        }
+        tags = {
+     Name = "private-RT"
    }
   }
 
@@ -15,10 +18,10 @@
 #   #  nat_gateway_id = aws_nat_gateway.nat-gw.id
 #   nat_gateway_id = each.key.id
 #    }
-   tags = {
-     Name = "private-RT"
-   }
- }
+#    tags = {
+#      Name = "private-RT"
+#    }
+#  }
 
  resource "aws_route_table" "publicRT" {
   for_each = aws_vpc.vpc
