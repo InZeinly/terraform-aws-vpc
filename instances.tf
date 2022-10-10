@@ -7,7 +7,7 @@ resource "aws_instance" "bastion" {
     # subnet_id = aws_subnet.publicsubnet.id
     key_name = var.key_name
     # security_groups = [ aws_security_group.bastion_sg.id ]
-    security_groups = each.value
+    security_groups = aws_security_group.bastion_sgreaw
 
     tags = {
       Name = "EC-2 bastion"
